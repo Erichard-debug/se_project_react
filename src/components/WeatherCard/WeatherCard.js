@@ -1,69 +1,69 @@
-import "../Weather/Weather.css";
+import "../WeatherCard/WeatherCard.css";
 
 const weatherOptions = [
   {
-    url: require("../images/day/sunnyday.svg").default,
+    url: require("../../images/day/sunnyday.svg").default,
     day: true,
     type: "sunny",
   },
   {
-    url: require("../images/day/cloudyday.svg").default,
+    url: require("../../images/day/cloudyday.svg").default,
     day: true,
     type: "cloudy",
   },
   {
-    url: require("../images/day/rainday.svg").default,
+    url: require("../../images/day/rainday.svg").default,
     day: true,
     type: "rainy",
   },
   {
-    url: require("../images/day/stormday.svg").default,
+    url: require("../../images/day/stormday.svg").default,
     day: true,
     type: "stormy",
   },
   {
-    url: require("../images/day/fogday.svg").default,
+    url: require("../../images/day/fogday.svg").default,
     day: true,
     type: "foggy",
   },
   {
-    url: require("../images/day/snowday.svg").default,
+    url: require("../../images/day/snowday.svg").default,
     day: true,
     type: "snowy",
   },
   {
-    url: require("../images/night/clearnight.svg").default,
+    url: require("../../images/night/clearnight.svg").default,
     day: false,
     type: "clearmoon",
   },
   {
-    url: require("../images/night/cloudynight.svg").default,
+    url: require("../../images/night/cloudynight.svg").default,
     day: false,
     type: "cloud",
   },
   {
-    url: require("../images/night/rainnight.svg").default,
+    url: require("../../images/night/rainnight.svg").default,
     day: false,
     type: "rain",
   },
   {
-    url: require("../images/night/stormnight.svg").default,
+    url: require("../../images/night/stormnight.svg").default,
     day: false,
     type: "storm",
   },
   {
-    url: require("../images/night/fognight.svg").default,
+    url: require("../../images/night/fognight.svg").default,
     day: false,
     type: "fog",
   },
   {
-    url: require("../images/night/snownight.svg").default,
+    url: require("../../images/night/snownight.svg").default,
     day: false,
     type: "snow",
   },
 ];
 
-const Weather = ({ day, type, weatherTemp = "" }) => {
+const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   console.log("weather card");
   const imageSrc = weatherOptions.filter((i) => {
     return i.day == day && i.type == type;
@@ -77,4 +77,4 @@ const Weather = ({ day, type, weatherTemp = "" }) => {
     </section>
   );
 };
-export default Weather;
+export default WeatherCard;

@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Cabinet Grotesk";
-  src: url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
+  src: url("../../fonts/CabinetGrotesk-Medium.woff") format("woff");
 }
 
 .weather {
