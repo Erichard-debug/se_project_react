@@ -1,0 +1,45 @@
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("../fonts/CabinetGrotesk-Medium.woff") format("woff");
+}
+
+.modal__item-name {
+  color: #000;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  padding-bottom: 12px;
+}
+
+.modal__item-weather {
+  color: #000;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.modal__item-close-button {
+  background: url(../images/CloseButton.svg) no-repeat center;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  border: none;
+}
+
+.modal__content {
+  position: relative;
+  background-color: white;
+  max-width: 498px;
+  width: 100%;
+  border-radius: 16px;
+}
+
+.modal__item-img {
+  max-width: 498px;
+  border-top-right-radius: 16px;
+  border-top-left-radius: 16px;
+}

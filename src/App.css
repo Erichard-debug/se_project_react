@@ -1,38 +1,76 @@
-.App {
-  text-align: center;
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 20px;
+  margin-top: 40px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.modal__form-content {
   display: flex;
   flex-direction: column;
+  padding-bottom: 32px;
+}
+.modal__input-title {
+  color: #000;
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.modal__input {
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  border: 0;
+  width: 100%;
+  border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+.modal__weather-type {
+  color: rgba(0, 0, 0, 0.5);
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  margin-left: 8px;
+}
+
+.modal__radio-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.modal__weather-section {
+  color: #000;
+  font-family: "Cabinet Grotesk";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+}
+
+.modal__radio-button {
+  appearance: none;
+  background-color: white;
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  border: 1px solid black;
+  border-radius: 50%;
+}
+
+.modal__radio-button:checked {
+  background-color: black;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  color: #000;
+}
+
+.modal__radio-option {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
 }
