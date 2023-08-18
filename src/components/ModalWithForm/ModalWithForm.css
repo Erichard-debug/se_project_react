@@ -16,7 +16,7 @@
 }
 .modal__content {
   background-color: white;
-  max-width: 496px;
+  position: relative;
   width: 100%;
   border-radius: 20px;
   padding: 34px 36px;
@@ -45,6 +45,7 @@
   width: 16px;
   height: 16px;
   background: url(../../images/CloseButton.svg) no-repeat center;
+  background-color: black;
   position: absolute;
   top: 20px;
   right: 28px;
