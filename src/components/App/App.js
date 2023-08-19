@@ -24,11 +24,16 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
+
   useEffect(() => {
-    getForcastWeather().then((data) => {
-      const temperature = parseWeatherData(data);
-      setTemp(temperature);
-    });
+    getForcastWeather()
+      .then((data) => {
+        const temperature = parseWeatherData(data);
+        setTemp(temperature);
+      })
+      .catch((error) => {
+        console.error("An error occurred:", error);
+      });
   }, []);
   console.log(temp);
 
