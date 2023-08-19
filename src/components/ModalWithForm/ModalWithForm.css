@@ -44,8 +44,7 @@
   border: 0;
   width: 16px;
   height: 16px;
-  background: url(../../images/CloseButton.svg) no-repeat center;
-  background-color: black;
+  background: url(../../images/close-button-grey.svg) no-repeat center;
   position: absolute;
   top: 20px;
   right: 28px;
