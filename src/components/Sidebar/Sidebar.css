@@ -1,0 +1,25 @@
+.sidebar {
+  font-family: "Familjen Grotesk", sans-serif;
+  font-style: normal;
+  display: flex;
+  margin: 0 0 0px 40px;
+  justify-content: space-between;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  height: 40px;
+  gap: 16px;
+}
+
+.sidebar__avatar-image {
+  border-radius: 50%;
+  background-color: #000;
+}
+.sidebar__avatar-name {
+  display: flex;
+  align-self: center;
+  margin: 0;
+  padding: 0;
+  min-width: 157px;
+  width: 100%;
+}

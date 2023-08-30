@@ -1,9 +1,3 @@
-.footer {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 20px;
-  margin-top: 40px;
-}
 .modal__form-content {
   display: flex;
   flex-direction: column;

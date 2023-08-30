@@ -18,6 +18,14 @@ export const getForcastWeather = () => {
 export const parseWeatherData = (data) => {
   const main = data.main;
   const temperature = main && main.temp;
-  console.log(Math.ceil(temperature));
-  return Math.ceil(temperature);
+  const weather = {
+    temperature: {
+      F: Math.round(temperature),
+      C: Math.round(((temperature - 32) * 5) / 9),
+    },
+  };
+  return weather;
 };
+
+// weather.temperature.F = `${Math.round(data.main.temp)}°F`;
+// weather.temperature.C = `${Math.round((data.main.temp - 32) * 5/9)}°C`;

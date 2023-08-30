@@ -1,0 +1,41 @@
+.clothes__section {
+  margin-left: 117px;
+}
+
+.clothes__section-title-wrapper {
+  font-family: "Familjen Grotesk", sans-serif;
+  font-style: normal;
+  display: flex;
+  flex-direction: row;
+  color: #000;
+  font-size: 20px;
+  font-weight: 700;
+  gap: 20px;
+  height: 25px;
+  margin: 7px 0 16px 0;
+}
+
+.clothes__section-title {
+  margin: 0;
+}
+
+.clothes__section-button {
+  font-family: "Familjen Grotesk", sans-serif;
+  font-style: normal;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 20px;
+  font-weight: 700;
+  border: none;
+  background: white;
+}
+
+.clothes__section-button:hover {
+  cursor: pointer;
+}
+
+.clothing__section-cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+}
