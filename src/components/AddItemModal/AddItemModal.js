@@ -11,7 +11,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
     setUrl(e.target.value);
   };
 
-  const hanldeSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     onAddItem({ name, link });
   };
@@ -21,7 +21,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       title={"New Garment"}
       onClose={handleCloseModal}
       isOpen={isOpen}
-      onSubmit={hanldeSubmit}
+      onSubmit={handleSubmit}
     >
       <div className="modal__form-content">
         <label>
