@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
@@ -10,10 +10,23 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
   };
+  const [weather, setWeatherType] = useState("");
+
+  const handleWeatherType = (e) => {
+    setWeatherType(e.target.value);
+  };
+
+  useEffect(() => {
+    if (isOpen) {
+      setName("");
+      setWeatherType("");
+      setUrl("");
+    }
+  }, [isOpen]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, link });
+    onAddItem({ name, link, weather });
   };
 
   return (
@@ -58,6 +71,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               type="radio"
               id="hot"
               value="hot"
+              onChange={handleWeatherType}
             />
             <label className="modal__weather-type">Hot</label>
           </div>
@@ -67,6 +81,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               type="radio"
               id="warm"
               value="warm"
+              onChange={handleWeatherType}
             />
             <label className="modal__weather-type">Warm</label>
           </div>
@@ -76,6 +91,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
               type="radio"
               id="cold"
               value="cold"
+              onChange={handleWeatherType}
             />
             <label className="modal__weather-type">Cold</label>
           </div>
