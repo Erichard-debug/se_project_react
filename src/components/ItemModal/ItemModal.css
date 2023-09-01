@@ -3,23 +3,6 @@
   src: url("../../fonts/CabinetGrotesk-Medium.woff") format("woff");
 }
 
-.modal__item-name {
-  color: #000;
-  font-family: "Cabinet Grotesk";
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-  padding-bottom: 12px;
-}
-
-.modal__item-weather {
-  color: #000;
-  font-family: "Cabinet Grotesk";
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 24px;
-}
-
 .modal__item-close-button {
   background: url(../../images/CloseButton.svg) no-repeat center;
   background-color: whitesmoke;
@@ -43,4 +26,49 @@
   max-width: 498px;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
+}
+.modal__item-description {
+  background-color: #fff;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 700;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 0 0 20px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal__item-name {
+  color: #000;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  padding-bottom: 12px;
+}
+
+.modal__item-weather {
+  color: #000;
+  font-family: "Cabinet Grotesk";
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+}
+
+.modal__item-delete-button {
+  font-family: "CabinetGrotesk-Bold", sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 24px;
+  color: #ff4d00;
+  border: none;
+  background-color: transparent;
+  text-align: left;
+  left: 350px;
+  top: -50px;
+  height: 0;
+}
+.modal__item-delete-button:hover {
+  cursor: pointer;
 }

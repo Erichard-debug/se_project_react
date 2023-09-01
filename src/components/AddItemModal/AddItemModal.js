@@ -6,7 +6,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
-  const [link, setUrl] = useState("");
+  const [imageUrl, setUrl] = useState("");
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
   };
@@ -26,7 +26,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddItem({ name, link, weather });
+    onAddItem({ name, imageUrl, weather });
   };
 
   return (
@@ -59,7 +59,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
             name="link"
             minLength="1"
             maxLength="30"
-            value={link}
+            value={imageUrl}
             onChange={handleUrlChange}
           />
         </label>

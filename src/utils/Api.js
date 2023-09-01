@@ -1,5 +1,6 @@
 const baseUrl =
-  "https://my-json-server.typicode.com/Erichard-debug/se_project_react";
+  // "https://my-json-server.typicode.com/Erichard-debug/se_project_react";
+  "http://localhost:3001";
 
 export const checkResponse = (res) => {
   if (res.ok) {
