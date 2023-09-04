@@ -89,6 +89,24 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Dress.png?etag=1f9cd32a311ab139cab43494883720bf",
       "weather": "warm",
       "_id": 18
+    },
+    {
+      "name": "hat",
+      "imageUrl": "https://tse4.mm.bing.net/th?id=OIP._w7ZVCPnUplIQ_9TvWnkmAHaHa&pid=Api&P=0&h=180",
+      "weather": "warm",
+      "_id": 19
+    },
+    {
+      "name": "hat 2",
+      "imageUrl": "https://tse4.mm.bing.net/th?id=OIP._w7ZVCPnUplIQ_9TvWnkmAHaHa&pid=Api&P=0&h=180",
+      "weather": "cold",
+      "_id": 20
+    },
+    {
+      "name": "hat 3",
+      "imageUrl": "https://tse4.mm.bing.net/th?id=OIP._w7ZVCPnUplIQ_9TvWnkmAHaHa&pid=Api&P=0&h=180",
+      "weather": "hot",
+      "_id": 21
     }
   ]
 }

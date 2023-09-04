@@ -12,7 +12,6 @@ import Profile from "../Profile/Profile";
 import { deleteItem, getItems, addItem } from "../../utils/Api";
 
 function App() {
-  const weatherTemp = "85F";
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
