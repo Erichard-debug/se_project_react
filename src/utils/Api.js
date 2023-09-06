@@ -12,35 +12,31 @@ export const checkResponse = (res) => {
 
 // GET Items
 export const getItems = () => {
-  const getItems = fetch(`${baseUrl}/items`, {
+  return fetch(`${baseUrl}/items`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   }).then(checkResponse);
-  return getItems;
 };
 
 // POST Items
 export const addItem = ({ name, imageUrl, weather }) => {
-  const addItem = fetch(`${baseUrl}/items`, {
+  return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
-
-  return addItem;
 };
 
 // DELETE Items
 export const deleteItem = (selectedCard) => {
-  const deleteItem = fetch(`${baseUrl}/items/${selectedCard._id} `, {
+  return fetch(`${baseUrl}/items/${selectedCard._id} `, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
     },
   }).then(checkResponse);
-  return deleteItem;
 };

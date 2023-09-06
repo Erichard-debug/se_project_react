@@ -77,24 +77,6 @@
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Dress.png?etag=1f9cd32a311ab139cab43494883720bf",
       "weather": "warm",
       "_id": 18
-    },
-    {
-      "name": "hat2",
-      "imageUrl": "https://hatroom.eu/images/zoom/802970.jpg",
-      "weather": "hot",
-      "_id": 19
-    },
-    {
-      "name": "hat45",
-      "imageUrl": "https://hatroom.eu/images/zoom/802970.jpg",
-      "weather": "hot",
-      "_id": 20
-    },
-    {
-      "name": "hat",
-      "imageUrl": "https://hatroom.eu/images/zoom/802970.jpg",
-      "weather": "cold",
-      "_id": 22
     }
   ]
 }
