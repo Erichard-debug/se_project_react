@@ -3,10 +3,10 @@ import SideBar from "../SideBar/SideBar.js";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import "./Profile.css";
 
-function Profile({ onSelectCard, handleCreateModal, clothingItems }) {
+function Profile({ onSelectCard, handleCreateModal, clothingItems, onLogout}) {
   return (
     <div className="profile">
-      <SideBar />
+      <SideBar onLogout={onLogout}/>
       <ClothesSection
         onSelectCard={onSelectCard}
         handleCreateModal={handleCreateModal}

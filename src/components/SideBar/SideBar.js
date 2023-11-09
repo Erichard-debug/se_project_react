@@ -1,16 +1,32 @@
 import React from "react";
-import avatarLogo from "../../images/avatar-logo.svg";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 import "./SideBar.css";
 
-function SideBar() {
+function SideBar({ onLogout }) {
+  const currentUser = useContext(CurrentUserContext);
+  const currentAvatar = currentUser.avatar !== "" ? true : false;
   return (
     <div className="sidebar">
-      <img
-        src={avatarLogo}
-        alt="sidebar__avatar"
-        className="sidebar__avatar-image"
-      />
-      <p className="sidebar__avatar-name">Elliott Richard</p>
+      <div className="sibebar__profile">
+        {currentAvatar ? (
+          <img
+            src={currentUser?.avatar}
+            alt="sidebar__avatar"
+            className="sidebar__avatar-image"
+          />
+        ) : (
+          <p className="sidebar__avatar-name">
+            {currentUser?.name[0].toUpperCase()}
+          </p>
+        )}
+        <p className="sidebar__name">{currentUser?.name}</p>
+      </div>
+      <div className="sidbar__profile-manager">
+        <button className="sidebar__logout" type="button" onClick={onLogout}>
+          Log Out
+        </button>
+      </div>
     </div>
   );
 }

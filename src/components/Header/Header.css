@@ -39,6 +39,47 @@
   font-weight: 700;
 }
 
+.header__avatar{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.header__avatar-default{
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+
+}
+.header__register{
+  color: #000;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; 
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.header__login{
+  color: #000;
+  font-family: "Cabinet Grotesk", sans-serif;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px; 
+  background-color: #fff;
+  border: none;
+  cursor: pointer;
+
+}
+
 .header__button {
   color: #000;
   font-family: "Cabinet Grotesk";
