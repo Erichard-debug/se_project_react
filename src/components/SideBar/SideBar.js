@@ -5,7 +5,8 @@ import "./SideBar.css";
 
 function SideBar({ onLogout }) {
   const currentUser = useContext(CurrentUserContext);
-  const currentAvatar = currentUser.avatar !== "" ? true : false;
+  console.log(CurrentUserContext);
+  const currentAvatar = currentUser?.avatar !== "" ? true : false;
   return (
     <div className="sidebar">
       <div className="sibebar__profile">

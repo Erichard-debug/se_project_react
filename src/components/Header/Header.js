@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
-const Header = ({ onCreateModal,onSignUp, onLogin, loggedIn }) => {
+const Header = ({ onCreateModal, onSignUp, onLogin, loggedIn }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
   });
   const currentUser = useContext(CurrentUserContext);
+  console.log(currentUser);
   const currentAvatar = currentUser?.avatar !== "" ? true : false;
-
   return (
     <header className="header">
       <div className="header__logo">
@@ -27,19 +27,19 @@ const Header = ({ onCreateModal,onSignUp, onLogin, loggedIn }) => {
         <ToggleSwitch />
         {loggedIn ? (
           <>
-        <div>
-          <button
-            className="header__button"
-            type="text"
-            onClick={onCreateModal}
-          >
-            + Add Clothes
-          </button>
-        </div>
-        <Link to="/profile">
-          <div className="header__avatar-name">{currentUser?.name}</div>
-        </Link>
-        {currentAvatar ? (
+            <div>
+              <button
+                className="header__button"
+                type="text"
+                onClick={onCreateModal}
+              >
+                + Add Clothes
+              </button>
+            </div>
+            <Link to="/profile">
+              <div className="header__avatar-name">{currentUser?.name}</div>
+            </Link>
+            {currentAvatar ? (
               <div>
                 <img
                   className="header__avatar"
@@ -62,14 +62,10 @@ const Header = ({ onCreateModal,onSignUp, onLogin, loggedIn }) => {
             >
               Sign Up
             </button>
-            <button
-              className="header__login"
-              type="button"
-              onClick={onLogin}
-            >
+            <button className="header__login" type="button" onClick={onLogin}>
               Login
             </button>
-        </>
+          </>
         )}
       </div>
     </header>

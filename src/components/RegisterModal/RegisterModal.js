@@ -30,7 +30,6 @@ const RegisterModal = ({ handleCloseModal, onSignUp, buttonText, isOpen }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(avatar);
     onSignUp({ name, avatar, email, password });
   };
 

@@ -1,7 +1,6 @@
 import "../ItemModal/ItemModal.css";
 
 const ItemModal = ({ selectedCard, onClose, handleDeleteCard }) => {
-  console.log("item modal");
 
   return (
     <div className={`modal`}>

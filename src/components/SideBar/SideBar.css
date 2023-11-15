@@ -12,8 +12,12 @@
 }
 
 .sidebar__avatar-image {
+  margin-right: 16px;
+  height: 40px;
+  width: 40px;
   border-radius: 50%;
-  background-color: #000;
+  object-fit: cover;
+  border: 1px solid rgba(0, 0, 0, 0.5);
 }
 .sidebar__avatar-name {
   display: flex;
@@ -24,12 +28,12 @@
   width: 100%;
 }
 
-.sidebar__profile{
+.sidebar__profile {
   display: flex;
   align-items: center;
 }
 
-.sidebar__name{
+.sidebar__name {
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 20px;
   font-style: normal;
@@ -38,19 +42,19 @@
   white-space: nowrap;
 }
 
-.sidbar__profile-manager{
+.sidbar__profile-manager {
   display: flex;
   flex-direction: column;
   margin-top: 39px;
 }
 
-.sidebar__logout{
+.sidebar__logout {
   color: #000;
   font-family: "Cabinet Grotesk", sans-serif;
   font-size: 20px;
   font-style: normal;
   font-weight: 700;
-  line-height: 24px; 
+  line-height: 24px;
   background-color: #fff;
   padding: 0;
   margin-top: 8px;
