@@ -9,16 +9,14 @@ const EditProfileModal = ({
   handleEditProfile,
 }) => {
   const [name, setName] = useState("");
-  const [avatar, setAvatar] = useState("");
-  const currentUser = useContext(CurrentUserContext);
-
   const handleNameChage = (evt) => {
     setName(evt.target.value);
   };
-
+  const [avatar, setAvatar] = useState("");
   const handleAvatarChange = (evt) => {
     setAvatar(evt.target.value);
   };
+  const currentUser = useContext(CurrentUserContext);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -68,4 +66,4 @@ const EditProfileModal = ({
     </ModalWithForm>
   );
 };
-
+export default EditProfileModal;

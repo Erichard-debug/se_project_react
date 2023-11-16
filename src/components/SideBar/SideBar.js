@@ -3,9 +3,8 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 import "./SideBar.css";
 
-function SideBar({ onLogout }) {
+function SideBar({ onEditProfile, onLogout }) {
   const currentUser = useContext(CurrentUserContext);
-  console.log(CurrentUserContext);
   const currentAvatar = currentUser?.avatar !== "" ? true : false;
   return (
     <div className="sidebar">
@@ -24,6 +23,13 @@ function SideBar({ onLogout }) {
         <p className="sidebar__name">{currentUser?.name}</p>
       </div>
       <div className="sidbar__profile-manager">
+        <button
+          className="sidebar__edit"
+          type="button"
+          onClick={onEditProfile}
+        >
+          Change Profile Data
+        </button>
         <button className="sidebar__logout" type="button" onClick={onLogout}>
           Log Out
         </button>

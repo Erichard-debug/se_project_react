@@ -10,15 +10,21 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import {
   Switch,
   Route,
-  // Router,
   useHistory,
 } from "react-router-dom/cjs/react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
+import EditProfileModal from "../EditProfileModal/EditProfileModal.js";
 import Profile from "../Profile/Profile";
-import { deleteItem, getItems, addItem } from "../../utils/Api";
-import { signup, signin, checkToken } from "../../utils/auth";
+import {
+  deleteItem,
+  getItems,
+  addItem,
+  addCardLike,
+  removeCardLike,
+} from "../../utils/Api";
+import { signup, signin, checkToken, editProfile } from "../../utils/auth";
 import ProtectedRoute from "../ProtectedRoute/ProtectedRoute.js";
 
 function App() {
@@ -107,7 +113,6 @@ function App() {
       });
   }, []);
 
-
   const handleCreateModal = () => {
     setActiveModal("create");
   };
@@ -118,6 +123,10 @@ function App() {
 
   const handleOpenLoginModal = () => {
     setActiveModal("login");
+  };
+
+  const handleOpenEditProfileModal = () => {
+    setActiveModal("edit");
   };
 
   const handleCloseModal = () => {
@@ -133,12 +142,6 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  // const handleSubmit = (request) => {
-  //   request()
-  //     .then(handleCloseModal)
-  //     .catch(console.error)
-  // };
-
   const handleSignUp = ({ name, avatar, email, password }) => {
     return signup({ name, avatar, email, password }).then((user) => {
       handleLogin({ email, password }).then(() => {
@@ -152,12 +155,19 @@ function App() {
       const token = res.token;
       localStorage.setItem("jwt", res.token);
       return checkToken(token).then((data) => {
-        const user = data.data;
+        const user = data;
         setLoggedIn(true);
         setCurrentUser(user);
         handleCloseModal();
         history.push("/profile");
       });
+    });
+  };
+
+  const handleEditProfileSubmit = ({ name, avatar }) => {
+    return editProfile({ name, avatar }).then((res) => {
+      setCurrentUser(res);
+      handleCloseModal();
     });
   };
 
@@ -181,6 +191,29 @@ function App() {
         console.log(err);
       });
   };
+  const handleLikeClick = ({ selectedCard, isLiked }) => {
+    const token = localStorage.getItem("jwt");
+    !isLiked
+      ? addCardLike(selectedCard, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) => {
+              return cards.map((card) =>
+                card._id !== selectedCard._id ? updatedCard.data : card
+              );
+            });
+          })
+          .catch((err) => console.log(err))
+      : removeCardLike(selectedCard, token)
+          .then((updatedCard) => {
+            setClothingItems((cards) => {
+              return cards.map((card) =>
+                card._id !== selectedCard._id ? updatedCard.data : card
+              );
+            });
+          })
+          .catch((err) => console.log(err));
+  };
+
   const onAddItem = (values) => {
     addItem(values)
       .then((data) => {
@@ -191,13 +224,12 @@ function App() {
         console.error(error.status);
       });
   };
-  console.log(currentUser);
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
-        {/* <Router> */}
         <Header
           onCreateModal={handleCreateModal}
           onSignUp={handleOpenRegisterModal}
@@ -210,6 +242,7 @@ function App() {
               weatherTemp={temp}
               onSelectCard={handleSelectedCard}
               clothingItems={clothingItems}
+              onCardLike={handleLikeClick}
               loggedIn={loggedIn}
             />
           </Route>
@@ -217,13 +250,14 @@ function App() {
             <Profile
               clothingItems={clothingItems}
               handleCreateModal={handleCreateModal}
+              onEditProfile={handleOpenEditProfileModal}
               onSelectCard={handleSelectedCard}
+              onCardLike={handleLikeClick}
               loggedIn={loggedIn}
               onLogout={handleLogout}
             />
           </ProtectedRoute>
         </Switch>
-        {/* </Router> */}
         <Footer />
         {activeModal === "create" && (
           <AddItemModal
@@ -253,6 +287,13 @@ function App() {
             buttonText={"Login"}
             onLogin={handleLogin}
             onAltButton={handleOpenRegisterModal}
+          />
+        )}
+        {activeModal === "edit" && (
+          <EditProfileModal
+            onCloseModal={handleCloseModal}
+            handleEditProfile={handleEditProfileSubmit}
+            buttonText={"Save changes"}
           />
         )}
       </CurrentTemperatureUnitContext.Provider>
