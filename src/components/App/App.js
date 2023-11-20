@@ -7,11 +7,7 @@ import ItemModal from "../ItemModal/ItemModal.js";
 import { getForcastWeather, parseWeatherData } from "../../utils/WeatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import {
-  Switch,
-  Route,
-  useHistory,
-} from "react-router-dom/cjs/react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import LoginModal from "../LoginModal/LoginModal.js";
 import RegisterModal from "../RegisterModal/RegisterModal.js";
@@ -192,6 +188,7 @@ function App() {
       });
   };
   const handleLikeClick = ({ selectedCard, isLiked }) => {
+    // TODO: selected card Doesn't exist here
     const token = localStorage.getItem("jwt");
     !isLiked
       ? addCardLike(selectedCard, token)
@@ -214,8 +211,8 @@ function App() {
           .catch((err) => console.log(err));
   };
 
-  const onAddItem = (values) => {
-    addItem(values)
+  const onAddItem = ({ name, imageUrl, weather }) => {
+    addItem({ name, imageUrl, weather })
       .then((data) => {
         setClothingItems([data, ...clothingItems]);
         handleCloseModal();

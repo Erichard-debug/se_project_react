@@ -20,10 +20,12 @@ export const getItems = () => {
 
 // POST Items
 export const addItem = ({ name, imageUrl, weather }) => {
+  const token = localStorage.getItem("jwt");
   return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      authorization: `Bearer ${token}`,
     },
     body: JSON.stringify({ name, imageUrl, weather }),
   }).then(checkResponse);
@@ -40,7 +42,6 @@ export const deleteItem = (selectedCard) => {
     },
   }).then(checkResponse);
 };
-
 
 export const addCardLike = (selectedCard) => {
   const token = localStorage.getItem("jwt");

@@ -12,9 +12,11 @@ const ItemCard = ({ item, onSelectCard, onCardLike, loggedIn }) => {
     loggedIn ? "card__like-btn_visible" : "card__like-btn_hidden"
   }`;
   const cardLikeButtonImg = `${isLiked ? likeButtonActive : likeButton}`;
+
   const handleLikeClick = () => {
     onCardLike({ id: item._id, isLiked });
   };
+
   return (
     <div className="card__item">
       <h2 className="card__name">{item.name}</h2>
