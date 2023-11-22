@@ -37,32 +37,34 @@ const EditProfileModal = ({
       buttonText={buttonText}
       onSubmit={handleSubmit}
     >
-      <label className="modal__form-label">
-        Name
-        <input
-          className="modal__form-input"
-          type="text"
-          name="name"
-          minLength="1"
-          maxLength="100"
-          placeholder="Name"
-          value={name}
-          onChange={handleNameChage}
-          required
-        />
-      </label>
+      <div className="modal__form-content">
+        <label>
+          <p className="modal__input-title">Name</p>
+          <input
+            className="modal__input"
+            type="text"
+            name="name"
+            minLength="1"
+            maxLength="100"
+            placeholder="Name"
+            value={name}
+            onChange={handleNameChage}
+            required
+          />
+        </label>
 
-      <label className="modal__form-label">
-        Avatar
-        <input
-          className="modal__form-input"
-          type="url"
-          name="avatar"
-          placeholder="Avatar URL"
-          value={avatar}
-          onChange={handleAvatarChange}
-        />
-      </label>
+        <label>
+          <p className="modal__input-title">Avatar</p>
+          <input
+            className="modal__input"
+            type="url"
+            name="avatar"
+            placeholder="Avatar URL"
+            value={avatar}
+            onChange={handleAvatarChange}
+          />
+        </label>
+      </div>
     </ModalWithForm>
   );
 };

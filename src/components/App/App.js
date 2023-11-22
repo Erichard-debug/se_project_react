@@ -274,7 +274,7 @@ function App() {
         )}
         {activeModal === "register" && (
           <RegisterModal
-            onCloseModal={handleCloseModal}
+            handleCloseModal={handleCloseModal}
             buttonText={"Next"}
             onSignUp={handleSignUp}
             onAltButton={handleOpenLoginModal}
@@ -282,7 +282,7 @@ function App() {
         )}
         {activeModal === "login" && (
           <LoginModal
-            onCloseModal={handleCloseModal}
+            handleCloseModal={handleCloseModal}
             buttonText={"Login"}
             onLogin={handleLogin}
             onAltButton={handleOpenRegisterModal}
@@ -290,7 +290,7 @@ function App() {
         )}
         {activeModal === "edit" && (
           <EditProfileModal
-            onCloseModal={handleCloseModal}
+            handleCloseModal={handleCloseModal}
             handleEditProfile={handleEditProfileSubmit}
             buttonText={"Save changes"}
           />

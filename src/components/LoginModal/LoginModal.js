@@ -24,7 +24,6 @@ const LoginModal = ({ handleCloseModal, onLogin, buttonText, isOpen }) => {
     onLogin({ email, password });
   };
 
-
   return (
     <ModalWithForm
       title="Login"
@@ -32,31 +31,33 @@ const LoginModal = ({ handleCloseModal, onLogin, buttonText, isOpen }) => {
       buttonText={buttonText}
       onSubmit={handleSubmit}
     >
-      <label className="modal__input-title">
-        Email
-        <input
-          className="modal__input"
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleEmailInput}
-          required
-        />
-      </label>
+      <div className="modal__form-content">
+        <label>
+          <p className="modal__input-title"> Email</p>
+          <input
+            className="modal__input"
+            type="email"
+            name="email"
+            placeholder="Email"
+            value={email}
+            onChange={handleEmailInput}
+            required
+          />
+        </label>
 
-      <label className="modal__input-title">
-        Password
-        <input
-          className="modal__input"
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handlePasswordInput}
-          required
-        />
-      </label>
+        <label>
+          <p className="modal__input-title">Password</p>
+          <input
+            className="modal__input"
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={handlePasswordInput}
+            required
+          />
+        </label>
+      </div>
     </ModalWithForm>
   );
 };
