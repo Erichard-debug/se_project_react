@@ -188,23 +188,25 @@ function App() {
       });
   };
   const handleLikeClick = ({ selectedCard, isLiked }) => {
-    // TODO: selected card Doesn't exist here
     const token = localStorage.getItem("jwt");
     !isLiked
       ? addCardLike(selectedCard, token)
           .then((updatedCard) => {
+            console.log(updatedCard);
             setClothingItems((cards) => {
-              return cards.map((card) =>
-                card._id !== selectedCard._id ? updatedCard.data : card
-              );
+              return cards.map((card) => {
+                console.log(card, selectedCard);
+                return card._id === selectedCard._id ? updatedCard : card;
+              });
             });
           })
           .catch((err) => console.log(err))
       : removeCardLike(selectedCard, token)
           .then((updatedCard) => {
+            console.log(updatedCard);
             setClothingItems((cards) => {
               return cards.map((card) =>
-                card._id !== selectedCard._id ? updatedCard.data : card
+                card._id === selectedCard._id ? updatedCard : card
               );
             });
           })
@@ -214,7 +216,7 @@ function App() {
   const onAddItem = ({ name, imageUrl, weather }) => {
     addItem({ name, imageUrl, weather })
       .then((data) => {
-        setClothingItems([data, ...clothingItems]);
+        setClothingItems([data.data, ...clothingItems]);
         handleCloseModal();
       })
       .catch((error) => {

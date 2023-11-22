@@ -52,7 +52,7 @@ export const addCardLike = (selectedCard) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  });
+  }).then(checkResponse);
 };
 
 export const removeCardLike = (selectedCard) => {
@@ -64,5 +64,5 @@ export const removeCardLike = (selectedCard) => {
       "Content-Type": "application/json",
       authorization: `Bearer ${token}`,
     },
-  });
+  }).then(checkResponse);
 };
