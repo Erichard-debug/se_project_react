@@ -13,13 +13,16 @@
 
 .card__name {
   position: absolute;
-  left: 140px;
-  top: 18px;
+  left: 130px;
+  top: 10px;
   color: rgba(0, 0, 0, 0.6);
   font-family: "Cabinet Grotesk";
   font-size: 16px;
   font-weight: 700;
   line-height: 20px;
+  background-color: white;
+  padding: 5px;
+  border-radius: 4px;
 }
 
 .card__image {
@@ -42,4 +45,17 @@
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
+}
+.card__like-btn {
+  position: absolute;
+  top: 30px;
+  right: 110px;
+}
+
+.card__like-btn_visible {
+  visibility: visible;
+}
+
+.card__like-btn_hidden {
+  visibility: hidden;
 }

@@ -160,12 +160,11 @@ function App() {
     });
   };
 
-  const handleEditProfileSubmit = ({ name, avatar }) => {
-    return editProfile({ name, avatar }).then((res) => {
-      setCurrentUser(res);
+  const handleEditProfileSubmit = ({ name, avatar }) =>
+    editProfile({ name, avatar }).then(({ user }) => {
+      setCurrentUser(user);
       handleCloseModal();
     });
-  };
 
   const handleLogout = () => {
     setCurrentUser("");
