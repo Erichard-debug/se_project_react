@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { useContext } from "react";
 
-const Header = ({ onCreateModal, onSignUp, onLogin, loggedIn }) => {
+const Header = ({ onCreateModal, onSignUp, onLogin, loggedIn, userLocation }) => {
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -21,7 +21,7 @@ const Header = ({ onCreateModal, onSignUp, onLogin, loggedIn }) => {
             <img src={logo} alt="Logo" />
           </Link>
         </div>
-        <div className="header__date">{currentDate},Spokane</div>
+        <div className="header__date">{currentDate},{userLocation}</div>
       </div>
       <div className="header__avatar-logo">
         <ToggleSwitch />

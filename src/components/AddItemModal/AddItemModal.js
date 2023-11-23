@@ -65,34 +65,40 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
         <p className="modal__weather-section">Select the Weather Type:</p>
         <div className="modal__radio-options">
           <div className="modal__radio-option">
-            <input
-              className="modal__radio-button"
-              type="radio"
-              id="hot"
-              value="hot"
-              onChange={handleWeatherType}
-            />
-            <label className="modal__weather-type">Hot</label>
+            <label className="modal__weather-type">
+              <input
+                className="modal__radio-button"
+                type="radio"
+                id="hot"
+                value="hot"
+                onChange={handleWeatherType}
+              />
+              Hot
+            </label>
           </div>
           <div className="modal__radio-option">
-            <input
-              className="modal__radio-button"
-              type="radio"
-              id="warm"
-              value="warm"
-              onChange={handleWeatherType}
-            />
-            <label className="modal__weather-type">Warm</label>
+            <label className="modal__weather-type">
+              <input
+                className="modal__radio-button"
+                type="radio"
+                id="warm"
+                value="warm"
+                onChange={handleWeatherType}
+              />
+              Warm
+            </label>
           </div>
           <div className="modal__radio-option">
-            <input
-              className="modal__radio-button"
-              type="radio"
-              id="cold"
-              value="cold"
-              onChange={handleWeatherType}
-            />
-            <label className="modal__weather-type">Cold</label>
+            <label className="modal__weather-type">
+              <input
+                className="modal__radio-button"
+                type="radio"
+                id="cold"
+                value="cold"
+                onChange={handleWeatherType}
+              />
+              Cold
+            </label>
           </div>
         </div>
       </div>

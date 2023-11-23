@@ -4,7 +4,7 @@ import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal.js";
-import { getForcastWeather, parseWeatherData } from "../../utils/WeatherApi";
+import { getForcastWeather, parseWeatherData, parseLocationData } from "../../utils/WeatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { Switch, Route, useHistory } from "react-router-dom";
@@ -27,6 +27,7 @@ function App() {
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
+  const [location, setLocation] = useState("");
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
   const [clothingItems, setClothingItems] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
@@ -103,6 +104,8 @@ function App() {
       .then((data) => {
         const temperature = parseWeatherData(data);
         setTemp(temperature);
+        const locationData = parseLocationData(data);
+        setLocation(locationData);
       })
       .catch((error) => {
         console.error("An error occurred:", error);
@@ -143,6 +146,9 @@ function App() {
       handleLogin({ email, password }).then(() => {
         handleCloseModal();
       });
+    })
+    .catch((err) => {
+      console.log(err);
     });
   };
 
@@ -157,6 +163,9 @@ function App() {
         handleCloseModal();
         history.push("/profile");
       });
+    })
+    .catch((err) => {
+      console.log(err);
     });
   };
 
@@ -233,6 +242,7 @@ function App() {
           onSignUp={handleOpenRegisterModal}
           onLogin={handleOpenLoginModal}
           loggedIn={loggedIn}
+          userLocation={location}
         />
         <Switch>
           <Route exact path="/">

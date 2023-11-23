@@ -12,7 +12,7 @@ function SideBar({ onEditProfile, onLogout }) {
         {currentAvatar ? (
           <img
             src={currentUser?.avatar}
-            alt="sidebar__avatar"
+            alt={currentUser?.name}
             className="sidebar__avatar-image"
           />
         ) : (
