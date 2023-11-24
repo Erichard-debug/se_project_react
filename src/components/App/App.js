@@ -37,7 +37,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const history = useHistory();
-  
+
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
@@ -172,11 +172,6 @@ function App() {
       });
   };
 
-  // const handleEditProfileSubmit = ({ name, avatar }) =>
-  //   editProfile({ name, avatar }).then(({ user }) => {
-  //     setCurrentUser(user);
-  //     handleCloseModal();
-  //   });
   const handleEditProfileSubmit = ({ name, avatar }) => {
     editProfile({ name, avatar })
       .then(({ user }) => {
@@ -189,7 +184,7 @@ function App() {
   };
 
   const handleLogout = () => {
-    setCurrentUser("");
+    setCurrentUser({});
     localStorage.removeItem("jwt");
     setLoggedIn(false);
     history.push("/");

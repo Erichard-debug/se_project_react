@@ -3,7 +3,6 @@ import { useState, useContext, useEffect } from "react";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const EditProfileModal = ({
-  isOpen,
   handleCloseModal,
   buttonText,
   handleEditProfile,
@@ -24,17 +23,14 @@ const EditProfileModal = ({
   };
 
   useEffect(() => {
-    if (isOpen === true) {
       setName(currentUser.name);
       setAvatar(currentUser.avatar);
-    }
-  }, [isOpen]);
+  }, []);
 
   return (
     <ModalWithForm
       title="Change profile data"
       onClose={handleCloseModal}
-      isOpen={isOpen}
       buttonText={buttonText}
       onSubmit={handleSubmit}
     >
