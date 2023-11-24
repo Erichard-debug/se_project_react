@@ -4,7 +4,11 @@ import Main from "../Main/Main.js";
 import Footer from "../Footer/Footer.js";
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal.js";
-import { getForcastWeather, parseWeatherData, parseLocationData } from "../../utils/WeatherApi";
+import {
+  getForcastWeather,
+  parseWeatherData,
+  parseLocationData,
+} from "../../utils/WeatherApi";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { Switch, Route, useHistory } from "react-router-dom";
@@ -33,6 +37,7 @@ function App() {
   const [currentUser, setCurrentUser] = useState({});
   const [loggedIn, setLoggedIn] = useState(false);
   const history = useHistory();
+  
   useEffect(() => {
     const jwt = localStorage.getItem("jwt");
     if (jwt) {
@@ -74,9 +79,7 @@ function App() {
         }
       }
     };
-
     document.addEventListener("keydown", handleEscClose);
-
     return () => {
       document.removeEventListener("keydown", handleEscClose);
     };
@@ -91,9 +94,7 @@ function App() {
         handleCloseModal();
       }
     };
-
     document.addEventListener("click", handleClickClose);
-
     return () => {
       document.removeEventListener("click", handleClickClose);
     };
@@ -142,38 +143,50 @@ function App() {
   };
 
   const handleSignUp = ({ name, avatar, email, password }) => {
-    return signup({ name, avatar, email, password }).then((user) => {
-      handleLogin({ email, password }).then(() => {
-        handleCloseModal();
+    return signup({ name, avatar, email, password })
+      .then((user) => {
+        handleLogin({ email, password }).then(() => {
+          handleCloseModal();
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   };
 
   const handleLogin = ({ email, password }) => {
-    return signin({ email, password }).then((res) => {
-      const token = res.token;
-      localStorage.setItem("jwt", res.token);
-      return checkToken(token).then((data) => {
-        const user = data;
-        setLoggedIn(true);
-        setCurrentUser(user);
-        handleCloseModal();
-        history.push("/profile");
+    return signin({ email, password })
+      .then((res) => {
+        const token = res.token;
+        localStorage.setItem("jwt", res.token);
+        return checkToken(token).then((data) => {
+          const user = data;
+          setLoggedIn(true);
+          setCurrentUser(user);
+          handleCloseModal();
+          history.push("/profile");
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   };
 
-  const handleEditProfileSubmit = ({ name, avatar }) =>
-    editProfile({ name, avatar }).then(({ user }) => {
-      setCurrentUser(user);
-      handleCloseModal();
-    });
+  // const handleEditProfileSubmit = ({ name, avatar }) =>
+  //   editProfile({ name, avatar }).then(({ user }) => {
+  //     setCurrentUser(user);
+  //     handleCloseModal();
+  //   });
+  const handleEditProfileSubmit = ({ name, avatar }) => {
+    editProfile({ name, avatar })
+      .then(({ user }) => {
+        setCurrentUser(user);
+        handleCloseModal();
+      })
+      .catch((err) => {
+        console.error(err);
+      });
+  };
 
   const handleLogout = () => {
     setCurrentUser("");

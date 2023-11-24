@@ -8,15 +8,15 @@ const EditProfileModal = ({
   buttonText,
   handleEditProfile,
 }) => {
-  const [name, setName] = useState("");
+  const currentUser = useContext(CurrentUserContext);
+  const [name, setName] = useState(currentUser.name);
   const handleNameChage = (evt) => {
     setName(evt.target.value);
   };
-  const [avatar, setAvatar] = useState("");
+  const [avatar, setAvatar] = useState(currentUser.avatar);
   const handleAvatarChange = (evt) => {
     setAvatar(evt.target.value);
   };
-  const currentUser = useContext(CurrentUserContext);
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -29,6 +29,7 @@ const EditProfileModal = ({
       setAvatar(currentUser.avatar);
     }
   }, [isOpen]);
+
   return (
     <ModalWithForm
       title="Change profile data"
