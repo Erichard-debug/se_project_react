@@ -1,5 +1,5 @@
 const baseUrl = process.env.NODE_ENV === 'production' 
-  ? 'deployed-backend-url'
+  ? 'https://api.expresswtwr.twilightparadox.com'
   : 'http://localhost:3001';
 
 export const checkResponse = (res) => {
